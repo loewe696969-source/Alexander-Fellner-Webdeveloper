@@ -1,0 +1,608 @@
+/* --- Farben und Basis-Setup --- */
+
+:root {
+    --color-background: #121212;
+    --color-text-light: #ffffff;
+    --color-text-secondary: #aaaaaa;
+    --color-blue-primary: #2196F3;
+    /* Helles, klares Blau */
+    --color-purple-accent: #9c27b0;
+    /* Kräftiges Lila */
+    --color-card-bg: #1e1e1e;
+    /* Dunkler als der Hintergrund */
+    --color-shadow: rgba(0, 0, 0, 0.4);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--color-background);
+    color: var(--color-text-light);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+a {
+    color: var(--color-blue-primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--color-purple-accent);
+}
+
+
+/* --- 1. Navigation Bar (Sticky und Elegant) --- */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    position: sticky;
+    top: 0;
+    background-color: rgba(18, 18, 18, 0.95);
+    /* Leichte Transparenz */
+    box-shadow: 0 2px 10px var(--color-shadow);
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text-light);
+}
+
+.nav-links a {
+    margin-left: 20px;
+    font-weight: 600;
+    padding: 0.5rem 0;
+    border-bottom: 2px solid transparent;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    border-bottom: 2px solid var(--color-blue-primary);
+}
+
+.cta-button {
+    background-color: var(--color-purple-accent);
+    color: var(--color-text-light) !important;
+    padding: 8px 15px;
+    border-radius: 5px;
+    border: none;
+    margin-left: 30px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: var(--color-blue-primary);
+    border-bottom: none !important;
+}
+
+
+/* --- Allgemeine Section Styles --- */
+
+section {
+    padding: 80px 5%;
+    min-height: 100vh;
+}
+
+h1 {
+    font-size: 3.5rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+h1,
+h2,
+h3 {
+    font-weight: 700;
+}
+
+.accent-text {
+    color: var(--color-blue-primary);
+}
+
+
+/* --- 2. HERO SECTION --- */
+
+.hero-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 100px;
+    /* Platz unter Navbar */
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.greeting {
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 5px;
+}
+
+.role {
+    font-size: 1.8rem;
+    color: var(--color-text-secondary);
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+.description {
+    margin-bottom: 30px;
+    color: var(--color-text-secondary);
+    max-width: 500px;
+}
+
+.hero-image {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    /* Runde Form */
+    overflow: hidden;
+    box-shadow: 0 0 0 10px var(--color-blue-primary), 0 0 0 15px var(--color-purple-accent);
+    /* Doppelter Rahmen */
+}
+
+@keyframes float-spin {
+    0% {
+        transform: translateY(0px) rotateZ(0);
+    }
+    50% {
+        transform: translateY(0px) rotateZ(0deg);
+    }
+    100% {
+        transform: translateY(0px) rotateZ(0deg);
+    }
+}
+
+.profile-pic {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: float-spin 3s ease-in-out infinite;
+}
+
+.button {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: 600;
+    margin-right: 15px;
+    transition: transform 0.2s ease;
+}
+
+.primary-button {
+    background-color: var(--color-blue-primary);
+    color: var(--color-text-light);
+}
+
+.primary-button:hover {
+    background-color: #1a8ffc;
+    transform: translateY(-2px);
+}
+
+.secondary-button {
+    background-color: transparent;
+    border: 2px solid var(--color-purple-accent);
+    color: var(--color-purple-accent);
+}
+
+.secondary-button:hover {
+    background-color: var(--color-purple-accent);
+    color: var(--color-text-light);
+    transform: translateY(-2px);
+}
+
+
+/* --- 3. PROJECTS SECTION (Grid Layout) --- */
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.project-card {
+    background-color: var(--color-card-bg);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px var(--color-shadow);
+    transition: transform 0.3s ease;
+    border-top: 4px solid var(--color-purple-accent);
+    /* Akzent-Linie */
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px var(--color-shadow);
+}
+
+.project-card h3 {
+    color: var(--color-blue-primary);
+    margin-bottom: 10px;
+}
+
+.project-description {
+    color: var(--color-text-secondary);
+    margin-bottom: 20px;
+}
+
+.project-links a {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 15px;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.blue-accent {
+    background-color: var(--color-blue-primary);
+    color: var(--color-text-light);
+}
+
+.purple-accent {
+    background-color: var(--color-purple-accent);
+    color: var(--color-text-light);
+}
+
+.project-links a i {
+    margin-right: 8px;
+}
+
+
+/* --- 5. FOOTER --- */
+
+.site-footer {
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid #333;
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+}
+
+
+/* --- Media Queries für Responsivität --- */
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .nav-links {
+        margin-top: 10px;
+    }
+    .nav-links a {
+        margin-left: 0;
+        margin-right: 15px;
+    }
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-image {
+        margin-top: 40px;
+    }
+    h1 {
+        font-size: 2.5rem;
+    }
+}
+
+
+/* Wichtig für die Responsivität: Auf 2 Spalten wechseln bei Tablets/kleinen Laptops */
+
+@media (max-width: 1024px) {
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* Wichtig für Smartphones: Auf 1 Spalte wechseln */
+
+@media (max-width: 600px) {
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* --- Skills Section --- */
+
+.skills-section {
+    padding: 4rem 2rem;
+    text-align: center;
+    background-color: transparent;
+    /* Oder Hintergrundfarbe passend zu Ihrem Theme */
+}
+
+.skills-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-text-light);
+}
+
+.skills-intro {
+    margin-bottom: 3rem;
+    /* FEHLERBEHEBUNG: Text muss hellgrau sein, nicht dunkelgrau */
+    color: var(--color-text-secondary);
+    font-size: 1.1rem;
+}
+
+.skills-grid {
+    display: grid;
+    /* HIER IST DER TRICK: repeat(5, 1fr) erzwingt genau 5 Spalten */
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    /* Abstand zwischen den Karten */
+    max-width: 1400px;
+    /* Breite etwas erhöhen, damit 5 Stück Platz haben */
+    margin: 0 auto;
+}
+
+.skill-card {
+    background-color: var(--color-card-bg);
+    border: 1px solid #333;
+    border-radius: 12px;
+    /* --- Feste Größe erzwingen --- */
+    width: 100%;
+    /* Füllt die Spalte aus */
+    height: 180px;
+    /* Feste Höhe für ALLE Karten */
+    /* Inhalt perfekt zentrieren */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, border-color 0.3s;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-text-light);
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.1);
+}
+
+.skill-card h3 {
+    margin-top: 15px;
+    font-size: 1rem;
+    /* Schrift etwas kleiner, damit sie in die Box passt */
+    font-weight: 600;
+    color: var(--color-text-light);
+    text-align: center;
+}
+
+
+/* --- Icon Styling und Farben --- */
+
+.skill-card i {
+    font-size: 3rem;
+    margin-bottom: 5px;
+}
+
+
+/* Individuelle Markenfarben */
+
+.html-icon {
+    color: #e34c26;
+}
+
+.css-icon {
+    color: #264de4;
+}
+
+.js-icon {
+    color: #f7df1e;
+    background: black;
+}
+
+
+/* Hintergrund für JS damit man Gelb sieht */
+
+.js-icon {
+    color: #f7df1e;
+    text-shadow: 2px 2px 0px #000;
+    background: none;
+}
+
+
+/* Bessere Option */
+
+.github-icon {
+    color: white;
+}
+
+.responsive-icon {
+    color: #2ecc71;
+}
+
+
+/* Mobile Anpassung */
+
+@media (max-width: 1200px) {
+    .skills-grid {
+        grid-template-columns: repeat(3, 1fr);
+        /* 3 Stück bei Laptops */
+    }
+}
+
+@media (max-width: 768px) {
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 Stück bei Tablets/Handys */
+    }
+}
+
+.chatgpt-icon {
+    color: #10a37f;
+}
+
+
+/* Das typische ChatGPT-Grün */
+
+.gemini-icon {
+    color: #4b90ff;
+}
+
+
+/* Ein schönes Gemini-Blau/Lila */
+
+.gemini-icon {
+    background: -webkit-linear-gradient(45deg, #4b90ff, #ff5546);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+/* --- Neue Fähigkeiten Farben --- */
+
+
+/* AI Prompting: Ein technisches Cyan/Neon */
+
+.ai-icon {
+    color: #00e5ff;
+    text-shadow: 0 0 10px rgba(0, 229, 255, 0.4);
+}
+
+
+/* SEO: Ein sichtbares Grün oder Orange (für Analyse) */
+
+.seo-icon {
+    color: #8bc34a;
+}
+
+
+/* Bootstrap: Das offizielle Lila */
+
+.bootstrap-icon {
+    color: #7952b3;
+}
+
+
+/* --- 6. CONTACT SECTION --- */
+
+.contact-section {
+    padding: 80px 5%;
+    /* Der Text wird linksbündig sein, wie im vorherigen Schritt gewünscht */
+    text-align: left;
+}
+
+.contact-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-text-light);
+}
+
+.contact-intro {
+    margin-bottom: 3rem;
+    color: var(--color-text-secondary);
+    font-size: 1.1rem;
+}
+
+.contact-content {
+    display: flex;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contact-form,
+.contact-map {
+    flex: 1;
+    /* Nimmt jeweils die Hälfte des Platzes ein */
+    min-width: 300px;
+    /* Mindestbreite */
+}
+
+
+/* --- Formular Styling --- */
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--color-text-light);
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form input[type="tel"],
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #444;
+    border-radius: 8px;
+    background-color: var(--color-card-bg);
+    /* Dunkler Hintergrund für die Felder */
+    color: var(--color-text-light);
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--color-blue-primary);
+    /* Akzentfarbe beim Fokus */
+    outline: none;
+    box-shadow: 0 0 5px rgba(33, 150, 243, 0.5);
+    /* Leichter blauer Schein */
+}
+
+
+/* --- Map Styling --- */
+
+.contact-map h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-blue-primary);
+}
+
+.map-container {
+    width: 100%;
+    height: 400px;
+    /* Feste Höhe für die Karte */
+    overflow: hidden;
+    border-radius: 10px;
+    border: 3px solid var(--color-purple-accent);
+    box-shadow: 0 5px 15px var(--color-shadow);
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+
+/* --- Responsivität: Formular und Karte stapeln --- */
+
+@media (max-width: 1024px) {
+    .contact-content {
+        flex-direction: column;
+    }
+    .contact-map {
+        margin-top: 40px;
+    }
+}
